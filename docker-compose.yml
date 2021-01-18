@@ -1,0 +1,20 @@
+version: '3'
+services:
+  app:
+    container_name: app
+    build: .
+    ports: 
+      - 8080:8080 
+    restart: on-failure
+    volumes:
+      - api:/cmd/        
+    networks:
+      - appnet
+
+volumes:
+  api:               
+
+# Networks to be created to facilitate communication between containers
+networks:
+  appnet:
+    driver: bridge

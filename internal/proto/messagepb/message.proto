@@ -1,0 +1,48 @@
+syntax = "proto3";
+package messagepb;
+
+service MessageService {
+    rpc add (DataInput) returns (DataResponse);
+    rpc get (GetInput) returns (GetResponse);
+}
+
+message DataInput {
+    string name = 1;
+    string city = 2;
+    string country = 3;
+    repeated string alias = 4;
+    repeated float coordinates = 5;
+    string province = 6;
+    string timezone = 7;
+    repeated string unlocs = 8;
+    string code = 9;
+    repeated string regions = 10;
+    string key = 11;
+}
+
+message DataResponse {
+    string message = 1;
+    string error = 2;
+}
+
+message GetResponse {
+    repeated Data data = 1;
+}
+message Data {
+    string name = 1;
+    string city = 2;
+    string country = 3;
+    repeated string alias = 4;
+    repeated float coordinates = 5;
+    string province = 6;
+    string timezone = 7;
+    repeated string unlocs = 8;
+    string code = 9;
+    repeated string regions = 10;
+    string key = 11;
+    string id = 12;
+}
+
+message GetInput {
+    string id = 1;
+}
